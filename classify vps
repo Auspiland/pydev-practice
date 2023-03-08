@@ -1,0 +1,12 @@
+def isvps(str):
+  stack=[")"]
+  for i in str[:]:
+    if i == ")":
+      if stack.pop() == ")":
+        print("NO")
+        return
+    elif i == "(":
+      stack.append(i)
+  if len(stack) == 1:
+    print("YES")
+  else: print("NO")
