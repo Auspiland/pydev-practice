@@ -1,6 +1,0 @@
-def josep(n,k):
-  a=list(range(1,n+1))
-  m=0
-  while(len(a)):
-    m=(m+k-1)%len(a)
-    print(a.pop((m)))
