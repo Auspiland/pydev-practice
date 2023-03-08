@@ -10,7 +10,6 @@ class stack():
   
   def pop(self):
     if len(self.storage) <= 0:
-      # raise LookupError("There are no data to pop.")
       print(-1)
       return
     print(self.storage.pop())
@@ -25,10 +24,9 @@ class stack():
   
   def top(self):
     if len(self.storage) <= 0:
-      # raise LookupError("There are no data to pop.")
       print(-1)
       return
-    print(self.storage[len(self.storage)-1])
+    print(self.storage[-1])
 
   def pri(self):
     print("           ",[i for i in self.storage])
