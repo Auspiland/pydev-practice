@@ -1,0 +1,57 @@
+import random
+
+class stack():
+  """This class is basic Stack."""
+  def __init__(self):
+    self.storage=[]
+  
+  def push(self, v):
+    self.storage.append(v)
+  
+  def pop(self):
+    if len(self.storage) <= 0:
+      # raise LookupError("There are no data to pop.")
+      print(-1)
+      return
+    print(self.storage.pop())
+  
+  def size(self):
+    print(len(self.storage))
+  
+  def empty(self):
+    if len(self.storage) <= 0:
+      print(1)
+    else: print(0)
+  
+  def top(self):
+    if len(self.storage) <= 0:
+      # raise LookupError("There are no data to pop.")
+      print(-1)
+      return
+    print(self.storage[len(self.storage)-1])
+
+  def pri(self):
+    print("           ",[i for i in self.storage])
+
+
+def prompt(ins):
+  # High 'N' could make the progress heavy so that I immediately reduce the value to 100.
+  ran=int(100*random.random())
+  print(ran)
+  for i in range(ran):
+    ins.pri()
+    rr=random.choice((1,2,3,4,5))
+    if rr==1:
+      ins.push(int(100000*random.random()))
+    elif rr==2:
+      ins.pop()
+    elif rr==3:
+      ins.size()
+    elif rr==4:
+      ins.empty()
+    elif rr==5:
+      ins.top()
+
+
+s1=stack()
+prompt(s1)
