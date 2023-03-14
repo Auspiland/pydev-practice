@@ -1,0 +1,40 @@
+from collections import deque
+class dee():
+  def __init__(self):
+    self.deq=deque()
+
+  def print(self):
+    print([i for i in self.deq])
+  
+  def push_front(self, x):
+    self.deq.appendleft(x)
+  
+  def push_back(self,x):
+    self.deq.append(x)
+  
+  def pop_front(self):
+    print(self.deq.popleft())
+  
+  def pop_back(self):
+    print(self.deq.pop())
+  
+  def size(self):
+    print("size: ",len(self.deq))
+    return len(self.deq)
+
+  def empty(self):
+    if len(self.deq) == 0:
+      print(1)
+    else:
+      print(0)
+  
+  def front(self):
+    if len(self.deq) == 0:
+      print(-1)
+    else:
+      print(self.deq[0])
+  
+  def back(self):
+    if len(self.deq) == 0:
+      print(-1)
+    else: print(self.deq[-1])
