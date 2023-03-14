@@ -1,3 +1,33 @@
+# This code is my first trial which couldn't handle the 'same variable issue'.
+# import sys
+# from collections import deque
+# stack1 = deque()
+# box = deque()
+# op="*+-/"
+
+# def input():
+#   return sys.stdin.readline().rstrip()
+
+# n=int(input())
+# for i in input().replace(" ",""):
+#   box.append(i)
+
+# for i in range(len(box)):
+#   p=box.popleft()
+#   if p not in op:
+#     stack1.append(int(input()))
+#   elif p == "*":
+#     stack1.append(stack1.pop()*stack1.pop())
+#   elif p == "+":
+#     stack1.append(stack1.pop()+stack1.pop())
+#   elif p == "-":
+#     stack1.append(-stack1.pop()+stack1.pop())
+#   elif p == "/":
+#     stack1.append((1/stack1.pop())*stack1.pop())
+
+# print("%.2f" % (stack1.pop(),))
+
+
 import sys
 from collections import deque
 stack1 = deque()
@@ -10,11 +40,16 @@ def input():
 n=int(input())
 for i in input().replace(" ",""):
   box.append(i)
+numbox = [int(input()) for i in range(n)]
 
 for i in range(len(box)):
+  # print(stack1)     # If you want to know about the procedure, erase this hashtag.
   p=box.popleft()
   if p not in op:
-    stack1.append(int(input()))
+    stack1.append(numbox[len(op)-4])
+    op+=str(p)
+  elif op.index(p) > 3:
+    stack1.append(numbox[op.index(p)-4])
   elif p == "*":
     stack1.append(stack1.pop()*stack1.pop())
   elif p == "+":
