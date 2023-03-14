@@ -1,0 +1,27 @@
+import sys
+from collections import deque
+stack1 = deque()
+box = deque()
+op="*+-/"
+
+def input():
+  return sys.stdin.readline().rstrip()
+
+n=int(input())
+for i in input().replace(" ",""):
+  box.append(i)
+
+for i in range(len(box)):
+  p=box.popleft()
+  if p not in op:
+    stack1.append(int(input()))
+  elif p == "*":
+    stack1.append(stack1.pop()*stack1.pop())
+  elif p == "+":
+    stack1.append(stack1.pop()+stack1.pop())
+  elif p == "-":
+    stack1.append(-stack1.pop()+stack1.pop())
+  elif p == "/":
+    stack1.append((1/stack1.pop())*stack1.pop())
+
+print("%.2f" % (stack1.pop(),))
